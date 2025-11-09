@@ -77,15 +77,67 @@ function payable_tax(){
     }
 }
 
+// Calculation for Income Tax
+
+function income_tax(){
+	let income = Number(input.value);	
+    if(!isNAN(income)){
+        if(income<=1200000){
+            console.log("You don't have to pay income tax ...");
+        }	
+        else{
+            let tax=(income<=1700000)?((income-1200000)*6.0/100):(income>1700000 & income<=2200000)?((500000*6.0/100)+((income-1700000)*12.0/100)):(income>2200000 & income<=2700000)?((500000*18.0/100)+((income-2200000)*18.0/100)):(income>2700000 & income<=3200000)?((500000*36.0/100)+((income-2700000)*24.0/100)):(income>3200000 & income<=3700000)?((500000*60.0/100)+((income-3200000)*30.0/100)):((500000*90/100)+((income-3700000)*36/100));	
+            console.log("You have to pay Income Tax per year : "+tax);				
+        }
+    }
+    else{
+        alert("Invalid Input!");
+        console.log("Invalid Input!");
+    }
+}
+
+function sscl_tax(){
+	let good_or_service = Number(input.value);	
+    if(!isNAN(good_or_service)){
+        if(good_or_service>0){
+            let tax=(good_or_service*2.5)/100;
+			tax+=((tax+good_or_service)*15.0/100);
+            console.log("You have to pay SSCL Tax : "+tax);				
+        }
+        else{
+            console.log("You don't have to pay SSCL tax ...");
+        }	
+    }
+    else{
+        alert("Invalid Input!");
+        console.log("Invalid Input!");
+    }
+}
+
+function find_installment(){
+
+}
+
+function lease_category(){
+
+}
+
+function find_lease_amount(){
+    
+}
+
 let tax_type = document.getElementById("tax_type");
 
 let tax_category = document.getElementById("tax_category");
+
+let tax_leasing_details = document.getElementById("leasing_details");
 
 btn_calculate.addEventListener("click", e =>{
     alert("Clicked!");
 
     const select_value_1 = tax_type.selectedIndex;
     const select_value_2 = tax_category.selectedIndex;
+    const select_value_3 = tax_leasing_details.selectedIndex;
 
     switch(select_value_1){
 
@@ -95,8 +147,13 @@ btn_calculate.addEventListener("click", e =>{
             else{dividend_tax();}
             break;
         case 2: payable_tax(); break;
-        case 3:
-        case 4:
+        case 3: income_tax(); break;
+        case 4: sscl_tax(); break;
+        case 5: 
+            if(select_value_3===1) {find_installment();}
+            else if(select_value_3===2){lease_category();}
+            else{find_lease_amount();}
+            break;
         default : console.log("Not yet implemented");
         
     }
