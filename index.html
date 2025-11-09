@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator</title>
+
+    <!-- Bootstrap css is Linked. -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+
+    <div class="container bg-info mt-5 text-center">
+        <h1>iCET</h1>
+        <h2>TAX CALCULATOR</h2>
+
+        <select class="form-select" aria-label="Default select example" id="tax_type">
+            <option selected>Select tax category</option>
+            <option value="1">Withholding Tax</option>
+            <option value="2">Payable Tax</option>
+            <option value="3">Income Tax</option>
+            <option value="4">Social Security Contribution Levy (SSCL) Tax</option>
+            <option value="5">Leasing Payment</option>
+        </select>
+
+        <!-- Select 1. Withholding Tax -->
+        <select class="form-select" aria-label="Default select example" id="tax_category">
+            <option selected>Select withholding tax category</option>
+            <option value="1">Rent Tax</option>
+            <option value="2">Bank Interest Tax</option>
+            <option value="3">Dividend Tax</option>
+        </select>
+
+        <!-- Select 1. Leasing Payment -->
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Select Leasing Payment Detail</option>
+            <option value="1">Calculate Monthly Installment</option>
+            <option value="2">Search Leasing Category</option>
+            <option value="3">Find Leasing Amount</option>
+        </select>
+
+        <!-- Calculate 1. Withholding Tax and Payable Tax -->
+        <div class="input-group mb-3">
+            <input type="text" class="form-control"
+                placeholder="Enter Value (Rent, Bank Interest per Year, Total Dividend per Year,Employee Payment per Month, Total Income per Year, Value of Good or Service)"
+                aria-label="Recipient’s username" aria-describedby="button-addon2" id="input">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Calculate</button>
+        </div>
+
+        <div class="mb-3">
+            <label for="basic-url" class="form-label">Enter Lease Amount : </label>
+            <div class="input-group">
+                <span class="input-group-text" id="basic-addon3">Lease Amount</span>
+                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4">
+            </div>
+            <div class="input-group">
+                <span class="input-group-text" id="basic-addon3">Number of Year</span>
+                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4">
+            </div>
+            <div class="input-group">
+                <span class="input-group-text" id="basic-addon3">Annual Interest Rate</span>
+                <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3 basic-addon4">
+            </div>
+
+            <div class="form-text" id="basic-addon4">Example help text goes outside the input group.</div>
+        </div>
+
+        <div id="display">
+            <p>You have to pay ....</p>
+        </div>
+
+    </div>
+
+    <!-- <h6>Select Tax Category : </h6>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown button</button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Withholding Tax</a></li>
+            <li><a class="dropdown-item" href="#">Payable Tax</a></li>
+            <li><a class="dropdown-item" href="#">Income Tax</a></li>
+            <li><a class="dropdown-item" href="#">Social Security Contribution Levy(SSCL) Tax</a></li>
+            <li><a class="dropdown-item" href="#">Leasing Payment</a></li>
+            <li><a class="dropdown-item" href="#">Exit</a></li>
+        </ul>
+    </div> -->
+
+    <script src="assets/js/app.js"></script>
+    <!-- Bootstrap script is Linked. -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
