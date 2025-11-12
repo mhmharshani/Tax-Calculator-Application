@@ -14,65 +14,73 @@
 
 <body>
 
+    <div class="container mt-5 pb-5 rounded-3 text-center">
+        <h3 class="logo">iCET</h3>
+        <h2 class="heading">TAX CALCULATOR</h2>
 
-    <div class="container bg-info mt-5 text-center">
-        <h1>iCET</h1>
-        <h2>TAX CALCULATOR</h2>
-
-        <select class="form-select" aria-label="Default select example" id="tax_type">
-            <option selected>Select tax category</option>
-            <option value="1">Withholding Tax</option>
-            <option value="2">Payable Tax</option>
-            <option value="3">Income Tax</option>
-            <option value="4">Social Security Contribution Levy (SSCL) Tax</option>
-            <option value="5">Leasing Payment</option>
-        </select>
-
-        <!-- Select 1. Withholding Tax -->
-        <select class="form-select" aria-label="Default select example" id="tax_category">
-            <option selected>Select withholding tax category</option>
-            <option value="1">Rent Tax</option>
-            <option value="2">Bank Interest Tax</option>
-            <option value="3">Dividend Tax</option>
-        </select>
-
-        <!-- Select 1. Leasing Payment -->
-        <select class="form-select" aria-label="Default select example" id="leasing_details">
-            <option selected>Select Leasing Payment Detail</option>
-            <option value="1">Calculate Monthly Installment</option>
-            <option value="2">Search Leasing Category</option>
-            <option value="3">Find Leasing Amount</option>
-        </select>
-
-        <!-- Calculate 1. Withholding Tax and Payable Tax -->
-        <div class="input-group mb-3">
-            <input type="text" class="form-control"
-                placeholder="Enter Value (Rent, Bank Interest per Year, Total Dividend per Year,Employee Payment per Month, Total Income per Year, Value of Good or Service)"
-                aria-label="Recipient’s username" aria-describedby="button-addon2" id="input">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Calculate</button>
-        </div>
-
-        <div class="mb-3">
-            <label for="basic-url" class="form-label">Enter Lease Amount : </label>
-            <div class="input-group">
-                <span class="input-group-text" id="basic-addon3">Lease Amount</span>
-                <input type="text" class="form-control" id="input_amount" aria-describedby="basic-addon3 basic-addon4">
-            </div>
-            <div class="input-group">
-                <span class="input-group-text" id="basic-addon3">Number of Year</span>
-                <input type="text" class="form-control" id="input_year" aria-describedby="basic-addon3 basic-addon4">
-            </div>
-            <div class="input-group">
-                <span class="input-group-text" id="basic-addon3">Annual Interest Rate</span>
-                <input type="text" class="form-control" id="input_rate" aria-describedby="basic-addon3 basic-addon4">
+        <div class="row mt-4">
+            <div class="col">
+                <select class="form-select" aria-label="Default select example" id="tax_type">
+                    <option selected>Select tax category</option>
+                    <option value="1">Withholding Tax</option>
+                    <option value="2">Payable Tax</option>
+                    <option value="3">Income Tax</option>
+                    <option value="4">Social Security Contribution Levy (SSCL) Tax</option>
+                    <option value="5">Leasing Payment</option>
+                </select>
             </div>
 
-            <div class="form-text" id="basic-addon4">Example help text goes outside the input group.</div>
+            <div class="col" id="tax_category_dd">
+                <!-- Changed as per response. -->
+            
+            </div>
+
         </div>
 
-        <div id="display">
-            <p>You have to pay ....</p>
+        <div class="row mt-5">
+
+            <div class="col-6">
+                
+                <div class="input-group">
+                    <span class="input-group-text" id="basic-addon3">Enter Value</span>
+                    <input type="text" class="form-control" id="input" aria-describedby="basic-addon3 basic-addon4">
+                </div>
+            </div>
+            
+            <div class="col-3">
+                <div class="input-group">
+                    <span class="input-group-text" id="basic-addon3">Number of Year</span>
+                    <input type="text" class="form-control" id="input_year" aria-describedby="basic-addon3 basic-addon4">
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="input-group">
+                    <span class="input-group-text" id="basic-addon3">Annual Interest Rate</span>
+                    <input type="text" class="form-control" id="input_rate" aria-describedby="basic-addon3 basic-addon4">
+                </div>
+
+            </div>
+
         </div>
+
+        <div class="row">
+            <div class="col">    
+            </div>
+            <div class="col">
+                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Calculate</button>
+            </div>
+            <div class="col">    
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3">
+            </div>
+            <div class="col-6" id="display">
+                <p><img src="assets/img/icon_loading.png" alt=""></p>
+            </div>
+        </div>
+        
 
     </div>
 

@@ -4,6 +4,8 @@ let input = document.getElementById("input");
 
 let btn_calculate = document.getElementById("button-addon2");
 
+let display = document.getElementById("display");
+
 // Calculation for Withholding Tax
 
 function rent_tax() {
@@ -11,23 +13,22 @@ function rent_tax() {
     if (!isNaN(num)) {
 
         if (num <= 100000) {
-            console.log("You don't have to pay Rent tax ...");
+            display.innerText="You don't have to pay Rent tax ...";
         }
         else {
-            console.log("You have to pay rent tax : " + (num * 10.0 / 100));
+            display.innerText="You have to pay rent tax : " + (num * 10.0 / 100);
         }
     }
     else {
         alert("Invalid Input!");
         console.log("Invalid Input!");
-
     }
 }
 
 function bank_interest_tax() {
     let num = Number(input.value);
     if (!isNaN(num)) {
-        console.log("You have to pay bank interest tax per year : " + (num * 5.0 / 100));
+        display.innerText="You have to pay bank interest tax per year : " + (num * 5.0 / 100);
     }
     else {
         alert("Invalid Input!");
@@ -42,10 +43,10 @@ function dividend_tax() {
     if (!isNaN(num)) {
 
         if (num <= 100000) {
-            console.log("You don't have to pay Dividend tax ...");
+            display.innerText="You don't have to pay Dividend tax ...";
         }
         else {
-            console.log("You have to pay Divident Tax per year : ", (num * 14.0 / 100));
+            display.innerText="You have to pay Divident Tax per year : "+ (num * 14.0 / 100);
         }
     }
     else {
@@ -63,11 +64,11 @@ function payable_tax() {
     if (!isNaN(salary)) {
 
         if (salary <= 100000) {
-            console.log("You don't have to pay Payable tax ...");
+            display.innerText="You don't have to pay Payable tax ...";
         }
         else {
             let tax = (salary > 100000 & salary <= 141667) ? ((salary - 100000) * 6.0 / 100) : (salary > 141667 & salary <= 183333) ? ((41667 * 6.0 / 100) + ((salary - 141667) * 12.0 / 100)) : (salary > 183333 & salary <= 225000) ? ((41667 * 18.0 / 100) + ((salary - 183333) * 18. / 100)) : (salary > 225000 & salary <= 266667) ? ((41667 * 36.0 / 100) + ((salary - 225000) * 24.0 / 100)) : (salary > 266667 & salary <= 308333) ? ((41667 * 60.0 / 100) + ((salary - 266667) * 30.0 / 100)) : ((41667 * 90.0 / 100) + ((salary - 308333) * 36.0 / 100));
-            console.log("You have to pay Payable Tax per month : " + tax);
+            display.innerText="You have to pay Payable Tax per month : " + tax;
         }
     }
     else {
@@ -83,11 +84,12 @@ function income_tax() {
     let income = Number(input.value);
     if (!isNaN(income)) {
         if (income <= 1200000) {
-            console.log("You don't have to pay income tax ...");
+            display.innerText="You don't have to pay income tax ...";
         }
         else {
             let tax = (income <= 1700000) ? ((income - 1200000) * 6.0 / 100) : (income > 1700000 & income <= 2200000) ? ((500000 * 6.0 / 100) + ((income - 1700000) * 12.0 / 100)) : (income > 2200000 & income <= 2700000) ? ((500000 * 18.0 / 100) + ((income - 2200000) * 18.0 / 100)) : (income > 2700000 & income <= 3200000) ? ((500000 * 36.0 / 100) + ((income - 2700000) * 24.0 / 100)) : (income > 3200000 & income <= 3700000) ? ((500000 * 60.0 / 100) + ((income - 3200000) * 30.0 / 100)) : ((500000 * 90 / 100) + ((income - 3700000) * 36 / 100));
-            console.log("You have to pay Income Tax per year : " + tax);
+            
+            display.innerText="You have to pay Income Tax per year : " + tax;
         }
     }
     else {
@@ -104,10 +106,10 @@ function sscl_tax() {
         if (good_or_service > 0) {
             let tax = (good_or_service * 2.5) / 100;
             tax += ((tax + good_or_service) * 15.0 / 100);
-            console.log("You have to pay SSCL Tax : " + tax);
+            display.innerText="You have to pay SSCL Tax : " + tax;
         }
         else {
-            console.log("You don't have to pay SSCL tax ...");
+            display.innerText="You don't have to pay SSCL tax ...";
         }
     }
     else {
@@ -116,7 +118,7 @@ function sscl_tax() {
     }
 }
 
-let input_amount = document.getElementById("input_amount");
+let input_amount = document.getElementById("input");
 
 let input_rate = document.getElementById("input_rate");
 
@@ -131,7 +133,7 @@ function find_installment() {
     if (!(isNaN(amount) | isNaN(rate) | isNaN(year))) {
         if ((amount > 0) & (rate > 0) & (year > 0) & (year <= 5)) {
             let installment = (amount * (rate / 100) / 12) / (1 - (1 / (Math.pow((1 + ((rate / 100) / 12)), (year * 12)))));
-            console.log("Your monthly installment : " + installment);
+            display.innerText="Your monthly installment : " + installment;
         }
         else {
             alert("Invalid Input!");
@@ -150,9 +152,7 @@ function lease_category() {
     let rate = Number(input_rate.value);
     if (!(isNaN(amount) | isNaN(rate))) {
         if ((amount > 0) & (rate > 0)) {
-            console.log("Your monthly installment for 3 year leasing plan - " + ((amount * rate / 100 / 12) / (1 - (1 / (Math.pow((1 + (rate / 100 / 12)), (3.0 * 12)))))));
-            console.log("Your monthly installment for 4 year leasing plan - " + ((amount * rate / 100 / 12) / (1 - (1 / (Math.pow((1 + (rate / 100 / 12)), (4.0 * 12)))))));
-            console.log("Your monthly installment for 5 year leasing plan - " + ((amount * rate / 100 / 12) / (1 - (1 / (Math.pow((1 + (rate / 100 / 12)), (5.0 * 12)))))));
+            display.innerText=("Your monthly installment for 3 year leasing plan - " + ((amount * rate / 100 / 12) / (1 - (1 / (Math.pow((1 + (rate / 100 / 12)), (3.0 * 12)))))))+("\nYour monthly installment for 4 year leasing plan - " + ((amount * rate / 100 / 12) / (1 - (1 / (Math.pow((1 + (rate / 100 / 12)), (4.0 * 12))))))) + ("\nYour monthly installment for 5 year leasing plan - " + ((amount * rate / 100 / 12) / (1 - (1 / (Math.pow((1 + (rate / 100 / 12)), (5.0 * 12)))))));
         }
         else {
             alert("Invalid Input!");
@@ -174,7 +174,7 @@ function find_lease_amount() {
     let year = Number(input_year.value);
     if (!(isNaN(amount) | isNaN(rate) | isNaN(year))) {
         if ((amount > 0) & (rate > 0) & (year > 0) & (year <= 5)) {
-            console.log("You can get lease amount - ", (amount * (1 - (1 / (Math.pow((1 + (rate / 100 / 12)), (year * 12))))) / (rate / 100 / 12)));
+            display.innerText=("You can get lease amount - "+ (amount * (1 - (1 / (Math.pow((1 + (rate / 100 / 12)), (year * 12))))) / (rate / 100 / 12))+"");
 
         }
         else {
@@ -193,18 +193,46 @@ function find_lease_amount() {
 
 let tax_type = document.getElementById("tax_type");
 
-let tax_category = document.getElementById("tax_category");
+let tax_category_dd = document.getElementById("tax_category_dd");
 
-let tax_leasing_details = document.getElementById("leasing_details");
+tax_type.addEventListener("change", e => {
+    console.log("changed tax type!");
+    if(tax_type.selectedIndex==1){
+        
+        tax_category_dd.innerHTML=`<select class="form-select" aria-label="Default select example" id="tax_category">
+            <option selected>Select withholding tax category</option>
+            <option value="1">Rent Tax</option>
+            <option value="2">Bank Interest Tax</option>
+            <option value="3">Dividend Tax</option>
+        </select>`;
+    }
+    else if(tax_type.selectedIndex==5){
+        tax_category_dd.innerHTML=`<select class="form-select" aria-label="Default select example" id="tax_category">
+        <option selected>Select Leasing Payment Detail</option>
+                    <option value="1">Calculate Monthly Installment</option>
+                    <option value="2">Search Leasing Category</option>
+                    <option value="3">Find Leasing Amount</option>`;
+    }
+    else{
+        tax_category_dd.innerHTML="";
+    }
+})
+
+//let tax_leasing_details = document.getElementById("leasing_details");
 
 // Calculate button click event
 
 btn_calculate.addEventListener("click", e => {
-    alert("Clicked!");
 
+    let tax_category = document.getElementById("tax_category");
     const select_value_1 = tax_type.selectedIndex;
-    const select_value_2 = tax_category.selectedIndex;
-    const select_value_3 = tax_leasing_details.selectedIndex;
+    let select_value_2;
+    if(select_value_1==1|select_value_1==5){
+        select_value_2 =tax_category.selectedIndex;
+    }
+    else{
+        select_value_2 =0;
+    }
 
     switch (select_value_1) {
 
@@ -217,8 +245,14 @@ btn_calculate.addEventListener("click", e => {
         case 3: income_tax(); break;
         case 4: sscl_tax(); break;
         case 5:
-            if (select_value_3 === 1) { find_installment(); }
-            else if (select_value_3 === 2) { lease_category(); }
+            if (select_value_2 === 1) { 
+                
+                find_installment(); 
+            }
+            else if (select_value_2 === 2) { 
+                
+                lease_category(); 
+            }
             else { find_lease_amount(); }
             break;
         default: console.log("Not yet implemented");

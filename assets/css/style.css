@@ -1,0 +1,39 @@
+body{
+    background-image: url("../img/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.container{
+    background-color: #4d6886;
+}
+
+.heading{
+     color: #b8c3cf;
+     font-weight: bold;
+     margin-bottom: 60px;
+     font-size: 50px;
+}
+
+.logo{
+    padding-top: 20px;
+    color: #b8c3cf;
+}
+
+#button-addon2{
+    background-color: #cad2db;
+    margin-top: 25px;
+    color:#4d6886 ;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#display{
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #b8c3cf;
+    border-radius: 15px;
+    color: #1f2a36;
+}
